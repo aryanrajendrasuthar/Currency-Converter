@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import { Plus, Trash2, Bell, BellOff } from 'lucide-react';
 import CurrencySelect from '../components/CurrencySelect';
 import { alertsApi } from '../api';
@@ -25,7 +25,7 @@ export default function AlertsPage() {
 
   useEffect(() => { fetchAlerts(); }, []);
 
-  const handleCreate = async (e: React.FormEvent) => {
+  const handleCreate = async (e: FormEvent) => {
     e.preventDefault();
     const rate = parseFloat(formData.targetRate);
     if (!rate || rate <= 0) { setError('Enter a valid target rate'); return; }

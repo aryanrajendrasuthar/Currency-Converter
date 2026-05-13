@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
+import type { ReactNode } from 'react';
 import { authApi } from '../api';
 
 interface AuthContextType {
@@ -13,7 +14,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export function AuthProvider({ children }: { children: ReactNode }) {
   const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
   const [userName, setUserName] = useState<string | null>(localStorage.getItem('userName'));
   const [userEmail, setUserEmail] = useState<string | null>(localStorage.getItem('userEmail'));

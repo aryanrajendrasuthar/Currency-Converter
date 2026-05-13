@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
@@ -8,7 +9,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import './App.css';
 
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
+function ProtectedRoute({ children }: { children: ReactNode }) {
   const { isAuthenticated } = useAuth();
   return isAuthenticated ? <>{children}</> : <Navigate to="/login" replace />;
 }

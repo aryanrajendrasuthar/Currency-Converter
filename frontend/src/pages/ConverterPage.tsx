@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { ArrowLeftRight, Star, StarOff } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import CurrencySelect from '../components/CurrencySelect';
@@ -168,7 +168,8 @@ export default function ConverterPage() {
                 contentStyle={{ background: '#1e293b', border: '1px solid #334155', borderRadius: 8 }}
                 labelStyle={{ color: '#f1f5f9' }}
                 itemStyle={{ color: '#f59e0b' }}
-                formatter={(v: number) => [v.toFixed(6), 'Rate']}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                formatter={((v: number) => v?.toFixed(6) ?? v) as any}
               />
               <Line
                 type="monotone"

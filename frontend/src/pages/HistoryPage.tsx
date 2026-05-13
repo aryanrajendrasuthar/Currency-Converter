@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { historyApi } from '../api';
 import type { ConversionHistoryItem, PageResponse } from '../types';
